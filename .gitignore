@@ -1,0 +1,28 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+
+# Java / Maven
+backend/target/
+backend/.mvn/
+
+# IntelliJ
+../.idea/
+*.iml
+*.iws
+*.ipr
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Environment files (NEVER commit these)
+.env
+.env.local
+.env.production
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
