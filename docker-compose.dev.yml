@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:17.9
+    container_name: artisan-postgres
+    environment:
+      POSTGRES_DB: artisanmarket
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U artisan -d artisanmarket"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:8.6.1
+    container_name: artisan-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+volumes:
+  postgres_data:
+  redis_data:
